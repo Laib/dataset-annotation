@@ -1,0 +1,12 @@
+Image filename : "filename"
+Image size (X x Y x C) : %d x %d x %d
+Database : "WFU's Small License Plate Database"
+
+
+Objects with ground truth : 3 { "PASperson" "PASperson" "PASperson" }
+
+# Note that there might be other objects in the image
+# for which ground truth data has not been provided.
+
+# Top left pixel co-ordinates : (0, 0)
+

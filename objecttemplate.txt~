@@ -1,0 +1,5 @@
+# Details for object %d ("%s")
+# Licence plate location described by the coordinates of 
+Original label for object 1 "PASperson" : "UprightPerson"
+Center point on object 1 "PASperson" (X, Y) : (396, 185)
+Bounding box for object 1 "PASperson" (Xmin, Ymin) - (Xmax, Ymax) : (261, 109) - (511, 705)

@@ -1,0 +1,5 @@
+# Details for object %d ("%s")
+# Licence plate location described by the coordinates of upper left corner to lower right. 
+
+Bounding box for object %d "%s" (Xmin, Ymin) - (Xmax, Ymax) : (%d, %d) - (%d, %d)
+

@@ -1,0 +1,8 @@
+# WFU's Small License Plate Test Dataset
+
+Image filename : "%s"
+Image size (X x Y x C) : %d x %d x %d
+Database : "WFU's Small License Plate Database"
+
+# Top left pixel co-ordinates : (0, 0)
+
