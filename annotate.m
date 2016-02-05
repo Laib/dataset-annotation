@@ -1,5 +1,5 @@
 %enter the folder or image you want to work on
-input_dir = '/home/wfu';
+input_dir = '/home/wfu/data/wfuplate/JimCars/Temp';
 working_dir = dir (input_dir);
 
 %need to go to the folder holding image files 
