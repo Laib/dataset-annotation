@@ -13,36 +13,44 @@ stillCutting = true;
 class_list = {};
 bboxes = [];
 
+skip = false;
+
 while stillCutting
     
      bbox = getrect;
-     x = inputdlg('end: redo: Enter classifier name');
-     
-     % When the user is done with identification
-     if strcmp(x, 'end')
-         break;
-     end
-     
-     % If you wish to redo box drawn
-     if strcmp(x, 'redo')
-         continue;
-     end
-     
-     % Clears everything if you want to start over
-     if strcmp(x, 'clear')
-         class_list = {};
-         bboxes = [];
-         continue;
-     end
      
      
-     
+     % Construct a questdlg with three options
+    choice = questdlg('Choose an option?', ...
+	'U M R', ...
+	'Proceed','Redo','Skip', 'Proceed');
+
+
+    choice
+    % Handle response
+    if strcmp(choice, 'Proceed')
+        choice
+        break;
+    end
+    
+    if strcmp(choice, 'Redo')
+        choice
+        continue;
+    end
+    
+    if strcmp(choice, 'Skip')
+        choice
+        skip = true;
+        break;
+    end
 end
-
+     
 close;
-icrop = imcrop(i, bbox);
-imwrite(icrop, [name '_crop' ext]);
 
+if skip == false
+    icrop = imcrop(i, bbox);
+    imwrite(icrop, [name '_crop' ext]);
+end
 
 
 
