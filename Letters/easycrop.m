@@ -1,5 +1,5 @@
 %enter the folder or image you want to work on
-input_dir = '/home/wfu/Dropbox/Car Images/Street';
+input_dir = '/home/wfu/Dropbox/Car Images/Google Images';
 working_dir = dir (input_dir);
 
 %need to go to the folder holding image files 
