@@ -1,6 +1,6 @@
 %enter the folder or image you want to work on
-input_dir = '/Users/wfu/Dropbox/data/wfulicense/data';
-output_dir = '/Users/wfu/Dropbox/data/wfulicense/data';
+input_dir = '/Users/wfu/Dropbox/data/wfulicense2/data';
+output_dir = '/Users/wfu/Dropbox/data/wfulicense2/data';
 working_dir = dir (input_dir);
 
 %need to go to the folder holding image files 
@@ -43,22 +43,32 @@ for i = 1:size(picture_fullpaths, 1)
     outputfilename = sprintf('%s/%s_%s.jpg', output_dir, name, 'sat1');
     imwrite(isat, outputfilename);
     
+    %increase color saturation
+    isat = saturate(i, 1.25);
+    outputfilename = sprintf('%s/%s_%s.jpg', output_dir, name, 'sat3');
+    imwrite(isat, outputfilename);
+    
     saturated_i = isat;
     
     %decrease color saturation
-    isat = saturate(i, 0.5);
+    isat = saturate(i, 0.75);
     outputfilename = sprintf('%s/%s_%s.jpg', output_dir, name, 'sat2');
     imwrite(isat, outputfilename);
     
-    %gaussfilter
-    isat = imgaussfilt(i, 2);
-    outputfilename = sprintf('%s/%s_%s.jpg', output_dir, name, 'g1');
+    %decrease color saturation
+    isat = saturate(i, 0.5);
+    outputfilename = sprintf('%s/%s_%s.jpg', output_dir, name, 'sat4');
     imwrite(isat, outputfilename);
     
     %gaussfilter
-    isat = imgaussfilt(i, 3);
-    outputfilename = sprintf('%s/%s_%s.jpg', output_dir, name, 'g2');
-    imwrite(isat, outputfilename);
+    %isat = imgaussfilt(i, 2);
+    %outputfilename = sprintf('%s/%s_%s.jpg', output_dir, name, 'g1');
+    %imwrite(isat, outputfilename);
+    
+    %gaussfilter
+    %isat = imgaussfilt(i, 3);
+    %outputfilename = sprintf('%s/%s_%s.jpg', output_dir, name, 'g2');
+    %imwrite(isat, outputfilename);
     
     %transformed, rotated 
     R = makeresampler({'cubic','nearest'},'replicate');
@@ -75,6 +85,11 @@ for i = 1:size(picture_fullpaths, 1)
     outputfilename = sprintf('%s/%s_%s.jpg', output_dir, name, 'trans2');
     imwrite(isat, outputfilename);
     
+    a = 0.05;
+    T = maketform('affine', [1 0 0; a 1 0; 0 0 1] );
+    isat = imtransform(i,T,R);
+    outputfilename = sprintf('%s/%s_%s.jpg', output_dir, name, 'trans2');
+    imwrite(isat, outputfilename);
     
     %a = -0.15;
     %T = maketform('affine', [1 0 0; a 1 0; 0 0 1] );
@@ -89,6 +104,11 @@ for i = 1:size(picture_fullpaths, 1)
     outputfilename = sprintf('%s/%s_%s.jpg', output_dir, name, 'trans4');
     imwrite(isat, outputfilename);
     
+    a = -0.05;
+    T = maketform('affine', [1 0 0; a 1 0; 0 0 1] );
+    isat = imtransform(i,T,R);
+    outputfilename = sprintf('%s/%s_%s.jpg', output_dir, name, 'trans4');
+    imwrite(isat, outputfilename);
     
     
     %transformed, rotated 
@@ -106,6 +126,11 @@ for i = 1:size(picture_fullpaths, 1)
     outputfilename = sprintf('%s/%s_%s.jpg', output_dir, name, 'strans2');
     imwrite(isat, outputfilename);
     
+    a = 0.05;
+    T = maketform('affine', [1 0 0; a 1 0; 0 0 1] );
+    isat = imtransform(saturated_i,T,R);
+    outputfilename = sprintf('%s/%s_%s.jpg', output_dir, name, 'strans2');
+    imwrite(isat, outputfilename);
     
     %a = -0.15;
     %T = maketform('affine', [1 0 0; a 1 0; 0 0 1] );
@@ -113,6 +138,11 @@ for i = 1:size(picture_fullpaths, 1)
     %outputfilename = sprintf('%s/%s_%s.png', output_dir, name, 'strans3');
     %imwrite(isat, outputfilename);
     
+    a = -0.05;
+    T = maketform('affine', [1 0 0; a 1 0; 0 0 1] );
+    isat = imtransform(saturated_i,T,R);
+    outputfilename = sprintf('%s/%s_%s.jpg', output_dir, name, 'strans4');
+    imwrite(isat, outputfilename);
     
     a = -0.10;
     T = maketform('affine', [1 0 0; a 1 0; 0 0 1] );

@@ -9,10 +9,10 @@ input_dir = '/home/wfu/data/wfuletters/data/*.png'
 output_dir = ''
 
 
-def label_files(input_dir):
+def label_files_wfulicense(input_dir):
 
-    fnames = glob.glob(input_dir + '/train' + '/*.jpg')
-    newfile = open(input_dir + '/train.txt', 'w')
+    fnames = glob.glob(input_dir + '/test' + '/*.jpg')
+    newfile = open(input_dir + '/test.txt', 'w')
 
     for fname in fnames:
 
@@ -91,4 +91,4 @@ rename_files_to_integers(input_dir, classifier)
 input_dir = '/Users/wfu/Dropbox/data/wfulicense/data'
 # resize_files(input_dir, 100, 50)
 #split_train_test(input_dir)
-label_files(input_dir)
+
